@@ -1,0 +1,16 @@
+different types of position for css
+
+all element in html is position static so we cannot move them     like top:100%, right50%, left:40%, bottom:100%, etc.....
+ 
+actual position of html element will be same
+ 
+
+position:
+1. static: we cannot move the element. default
+2. relative: we can move the element anywhere.
+3. absolute: when we want to position one element according to other element is absolute element.   i.e absolute element is depended on relative element.
+4. fixed: similar to static but fixed position depends on browser window where as static depend on body
+5. sticky: sticky is a mixture of absolute and relative.   i.e sticky moves to certain position like relative and stays there like a absolute.
+
+
+
