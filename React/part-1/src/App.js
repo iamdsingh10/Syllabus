@@ -36,6 +36,7 @@ import { Optimisation2 } from './components/Optimisation1';
 import { BatchExample2, BatchExample1, BatchExample3 } from './components/BatchExample';
 import { FileUploadExample } from './components/FileUploadExample';
 import { HooksExample } from './components/HooksExample';
+import { ListAllComponent } from './components/ListAllComponent';
 
 
 
@@ -283,6 +284,7 @@ return <>
         <div>
             <h4>Custom Hook</h4>
             <HooksExample/>
+            <ListAllComponent/>
            
         </div>
     </div>
