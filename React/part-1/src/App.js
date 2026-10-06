@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
 import './App.css';
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Car from "./components/Class";
 import Cars from "./components/Functional";
 import Props from "./components/Props";
@@ -33,6 +33,11 @@ import RefExample from './components/RefExample';
 import MemoExample from './components/MemoExample';
 import Optimisation1, { Dinner, Optimisation3, UpdateName } from './components/Optimisation1';
 import { Optimisation2 } from './components/Optimisation1';
+import { BatchExample2, BatchExample1, BatchExample3 } from './components/BatchExample';
+import { FileUploadExample } from './components/FileUploadExample';
+import { HooksExample } from './components/HooksExample';
+
+
 
 
 function App() {
@@ -87,9 +92,22 @@ const [carItems,setCarItems]=useState([
 // ])},2000)
 const [state,setState] = useState('Kuntal');
 
+const [fName,setFName] = useState('bibek');
+const [lName,setLName] = useState('sharma');
+
+const getName = function(){
+    console.log('getName function called');
+    return `${fName} ${lName}`
+}
+
 const onClick = useCallback(
-    ()=>setState(new Date().getTime()),[state]
+    (fName,lName)=>{
+        setFName(fName)
+        setLName(lName)
+    },[fName,lName]
 )
+
+const dinnerName = useMemo(getName,[fName,lName])
 
 const [updatedName,setUpdatedName] = useState('kuntal');
 const updateNameCallback = useCallback(
@@ -237,7 +255,9 @@ return <>
     <hr/>
     <div><MemoExample/></div>
     <hr/>
-    <div><Optimisation1  name="John"/></div>
+    <div>
+        <h2>Optimisation Examples</h2>
+        <Optimisation1  name="John"/></div>
     <div>
         <Optimisation2 name="dk"/>
     </div>
@@ -248,7 +268,23 @@ return <>
         <UpdateName onClick={updateNameCallback}/>
     </div>
     <div>
-        <Dinner/>
+        <Dinner name={dinnerName}/>
+    </div>
+    <hr/>
+    <div>
+        <h2>Lecture-10 : Batch Example</h2>
+        <BatchExample1/>
+        <BatchExample2/>
+        <BatchExample3/>
+        <div>
+            <h4>File Upload Example</h4>
+            <FileUploadExample/>
+        </div>
+        <div>
+            <h4>Custom Hook</h4>
+            <HooksExample/>
+           
+        </div>
     </div>
 
 </>

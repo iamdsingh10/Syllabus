@@ -31,20 +31,22 @@ const Optimisation3 = React.memo(({onClick}) => {
 
 const UpdateName = React.memo(({onClick}) =>{
     console.log('UpdateName rendered');
-    const inputRef = useRef(null);
+    const fNameInputRef = useRef(null);
+    const lNameInputRef = useRef(null);
     return <div>
-        <input ref={inputRef} placeholder='Enter Your Name'/>
-        <button onClick = {()=>{onClick(inputRef.current.value)}}>
+        <input ref={fNameInputRef} placeholder='Enter Your first Name'/>
+        <input ref={lNameInputRef} placeholder='Enter Your last Name'/>
+        <button onClick = {()=>{onClick(fNameInputRef.current.value, lNameInputRef.current.value)}}>
             UpdateName
         </button>
 
     </div>
 })
 
-function Dinner(){
+const Dinner = React.memo(({name})=>{
     console.log('Dinner rendered');
     return <>
-    <div> hye from dinner </div>
+    <div> hye from dinner {name} </div>
     </>
-}
+})
 export {Optimisation2, Optimisation3, UpdateName, Dinner};
